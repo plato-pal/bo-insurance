@@ -7,21 +7,21 @@ public class IssuePolicyResponse implements Serializable {
 
 	private static final long serialVersionUID = -8466122317249717971L;
 
-	private int policyNumber;
+	private String policyNumber;
 	private BigDecimal policyCost;
 	
 	public IssuePolicyResponse() {}
 
-	public IssuePolicyResponse(int policyNumber, BigDecimal policyCost) {
+	public IssuePolicyResponse(String policyNumber, BigDecimal policyCost) {
 		this.policyNumber = policyNumber;
 		this.policyCost = policyCost;
 	}
 
-	public int getPolicyNumber() {
+	public String getPolicyNumber() {
 		return policyNumber;
 	}
 
-	public void setPolicyNumber(int policyNumber) {
+	public void setPolicyNumber(String policyNumber) {
 		this.policyNumber = policyNumber;
 	}
 

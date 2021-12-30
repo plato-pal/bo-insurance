@@ -13,9 +13,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    </element>
    <complexType name="IssuePolicyRequest">
     <sequence>
-     <element name="email" nillable="true" type="xsd:string"/>
-     <element name="name" nillable="true" type="xsd:string"/>
-     <element name="product" type="xsd:int"/>
+     <element name="email" type="xsd:string"/>
+     <element name="name" type="xsd:string"/>
+     <element name="product" type="xsd:string"/>
     </sequence>
    </complexType>
    <element name="issuePolicyResponse">
@@ -28,7 +28,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <complexType name="IssuePolicyResponse">
     <sequence>
      <element name="policyCost" nillable="true" type="xsd:decimal"/>
-     <element name="policyNumber" type="xsd:int"/>
+     <element name="policyNumber" type="xsd:string"/>
     </sequence>
    </complexType>
   </schema>

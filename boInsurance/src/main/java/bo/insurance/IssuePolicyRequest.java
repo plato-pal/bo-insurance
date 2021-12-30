@@ -7,12 +7,12 @@ public class IssuePolicyRequest implements Serializable {
 	private static final long serialVersionUID = 6661595520940618248L;
 	
 	private String name;
-	private int product;
+	private String product;
 	private String email;
 	
 	public IssuePolicyRequest() {}
 
-	public IssuePolicyRequest(String name, int product, String email) {
+	public IssuePolicyRequest(String name, String product, String email) {
 		super();
 		this.name = name;
 		this.product = product;
@@ -27,11 +27,11 @@ public class IssuePolicyRequest implements Serializable {
 		this.name = name;
 	}
 
-	public int getProduct() {
+	public String getProduct() {
 		return product;
 	}
 
-	public void setProduct(int product) {
+	public void setProduct(String product) {
 		this.product = product;
 	}
 

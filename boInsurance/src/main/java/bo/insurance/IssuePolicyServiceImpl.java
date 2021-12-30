@@ -6,6 +6,11 @@ public class IssuePolicyServiceImpl implements IssuePolicyService {
 
 	@Override
 	public IssuePolicyResponse issuePolicy(IssuePolicyRequest issuePolicyRequest) {
-		return new IssuePolicyResponse(1, new BigDecimal(2));
+		
+		IssuePolicy issuePolicy = new IssuePolicy(issuePolicyRequest.getProduct(), 
+				issuePolicyRequest.getName(), issuePolicyRequest.getEmail());
+		Policy policy = issuePolicy.doIssue();
+		
+		return new IssuePolicyResponse(policy.getNumber(), policy.getTotalPremium());
 	}
 }
