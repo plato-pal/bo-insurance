@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://insurance.bo" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://insurance.bo" xmlns:intf="http://insurance.bo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://insurance.bo" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="issuePolicy">
+    <complexType>
+     <sequence>
+      <element name="issuePolicyRequest" type="impl:IssuePolicyRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="IssuePolicyRequest">
+    <sequence>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="product" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="issuePolicyResponse">
+    <complexType>
+     <sequence>
+      <element name="issuePolicyReturn" type="impl:IssuePolicyResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="IssuePolicyResponse">
+    <sequence>
+     <element name="policyCost" nillable="true" type="xsd:decimal"/>
+     <element name="policyNumber" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="issuePolicyRequest">
+
+      <wsdl:part element="impl:issuePolicy" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="issuePolicyResponse">
+
+      <wsdl:part element="impl:issuePolicyResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="IssuePolicyServiceImpl">
+
+      <wsdl:operation name="issuePolicy">
+
+         <wsdl:input message="impl:issuePolicyRequest" name="issuePolicyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:issuePolicyResponse" name="issuePolicyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="IssuePolicyServiceImplSoapBinding" type="impl:IssuePolicyServiceImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="issuePolicy">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="issuePolicyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="issuePolicyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="IssuePolicyServiceImplService">
+
+      <wsdl:port binding="impl:IssuePolicyServiceImplSoapBinding" name="IssuePolicyServiceImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/boInsurance/services/IssuePolicyServiceImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

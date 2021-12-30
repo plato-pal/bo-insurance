@@ -1,0 +1,45 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from IssuePolicyServiceImplService WSDL service -->
+
+  <service name="IssuePolicyServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://insurance.bo"/>
+      <parameter name="wsdlServiceElement" value="IssuePolicyServiceImplService"/>
+      <parameter name="schemaQualified" value="http://insurance.bo"/>
+      <parameter name="wsdlServicePort" value="IssuePolicyServiceImpl"/>
+      <parameter name="className" value="bo.insurance.IssuePolicyServiceImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="IssuePolicyServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="issuePolicy" qname="operNS:issuePolicy" xmlns:operNS="http://insurance.bo" returnQName="retNS:issuePolicyReturn" xmlns:retNS="http://insurance.bo" returnType="rtns:IssuePolicyResponse" xmlns:rtns="http://insurance.bo" soapAction="" >
+        <parameter qname="pns:issuePolicyRequest" xmlns:pns="http://insurance.bo" type="tns:IssuePolicyRequest" xmlns:tns="http://insurance.bo"/>
+      </operation>
+      <parameter name="allowedMethods" value="issuePolicy"/>
+
+      <typeMapping
+        xmlns:ns="http://insurance.bo"
+        qname="ns:IssuePolicyRequest"
+        type="java:bo.insurance.IssuePolicyRequest"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://insurance.bo"
+        qname="ns:IssuePolicyResponse"
+        type="java:bo.insurance.IssuePolicyResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
