@@ -25,10 +25,6 @@ eclipse {
     targetCompatibility = 1.8
 }
 
-application {
-    mainClass = 'bo.insurance.App'
-}
-
 tasks.named('test') {
     useJUnitPlatform()
 }
