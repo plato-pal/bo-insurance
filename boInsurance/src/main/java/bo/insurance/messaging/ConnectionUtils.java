@@ -23,10 +23,10 @@ public class ConnectionUtils {
 		    return conn;
 		  }
 	 
-	 public static String convertItemToJsonString (CustomerMessage customerMsg){
+	 public static String convertItemToJsonString (Object msgObject){
 	        ObjectMapper objectMapper = new ObjectMapper();
 	        try {
-	            return objectMapper.writeValueAsString(customerMsg);
+	            return objectMapper.writeValueAsString(msgObject);
 	        } catch (JsonProcessingException e) {
 	            return null;
 	        }

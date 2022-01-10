@@ -8,6 +8,8 @@ public class CustomerMessage implements Serializable{
 	 */
 	private static final long serialVersionUID = -8084890509350208828L;
 	
+	public final static String CUSTOMER_QUEUE_NAME = "CustomerQueue";
+	
 	private String name;
 	private String policyNumber;
 	private String email;
